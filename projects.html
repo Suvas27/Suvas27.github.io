@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Suvas T V</title>
+  <meta name="description" content="Engineering projects by Suvas T V — FPGA RTL design, embedded fault-aware IoT, and neuromorphic computational models.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2216%22 fill=%22%23030712%22/><text x=%2250%22 y=%2253%22 font-family=%22sans-serif%22 font-size=%2236%22 font-weight=%22800%22 fill=%22%236ee7b7%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>STV</text></svg>">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">Suvas<em>.</em></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Toggle menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+
+  <!-- Section Header -->
+  <section class="section-header">
+    <div class="container">
+      <div class="section-label reveal">Case Studies</div>
+      <h1 class="reveal">Engineering <em>Projects</em></h1>
+      <p class="subtitle reveal">Three projects spanning FPGA RTL design, embedded fault-aware IoT, and neuromorphic computational models.</p>
+    </div>
+  </section>
+
+  <!-- Project 1: HeartGuard -->
+  <section id="heartguard" class="project-case-study reveal">
+    <div class="container">
+      <div class="status-badge">Completed</div>
+      <h2>HeartGuard: Hybrid Neural Network System on FPGA</h2>
+      <p class="subtitle">Real-time cardiac fatigue and arrhythmia detection at the edge</p>
+
+      <div class="project-content" style="grid-template-columns: 5fr 3fr;">
+        <div class="project-text">
+          <h3>The Problem</h3>
+          <p>Wearable ECG monitoring needs real-time arrhythmia detection, but continuous deep-learning inference on FPGAs is power-hungry &mdash; while lightweight models alone aren&rsquo;t accurate enough.</p>
+
+          <h3>The Solution</h3>
+          <ul>
+            <li>Two-tier hybrid network: an always-on lightweight MLP monitors Heart Rate Variability (HRV) to flag fatigue</li>
+            <li>A 1D CNN activates only when fatigue is detected, classifying arrhythmias (AFib, PVC) from raw ECG</li>
+            <li>Both networks quantized to Q8.8 fixed-point and implemented as synthesizable Verilog RTL</li>
+          </ul>
+
+          <div class="project-actions">
+            <a href="https://github.com/Suvas27/HeartGuard-A-Hybrid-Neural-Network-System-on-FPGA-for-Real-Time-Cardiac-Fatigue-and-Arrhythmia-Dete" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub Repo</a>
+            <button class="btn btn-primary view-media-btn" data-images='[{"src":"assets/images/heartguard-sim-waveform.png","caption":"Vivado behavioral simulation — waveform output"}]'>View Waveforms</button>
+          </div>
+        </div>
+
+        <div class="project-sidebar">
+          <div class="stat-grid-small">
+            <div class="stat-box">
+              <span class="stat-number">97%</span>
+              <span class="stat-label">CNN Accuracy</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">AFib Recall</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">0.154 W</span>
+              <span class="stat-label">Total Power</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">&lt;1%</span>
+              <span class="stat-label">LUT Utilization</span>
+            </div>
+          </div>
+          <div class="tools-list">Verilog HDL &middot; SystemVerilog &middot; Xilinx Vivado &middot; Python/TensorFlow &middot; Nexys A7 (Artix-7 FPGA)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project 2: EcoStreet -->
+  <section id="ecostreet" class="project-case-study reveal">
+    <div class="container">
+      <div class="status-badge">🟢 Completed &mdash; Patent Published</div>
+      <h2>EcoStreet: Automated Smart Street Lighting System</h2>
+      <p class="subtitle">Adaptive, fault-aware lighting &mdash; patent application published</p>
+
+      <div class="project-content">
+        <div class="project-text">
+          <h3>The Problem</h3>
+          <p>Fixed-schedule street lights stay at full brightness all night regardless of need, wasting energy and delaying failure detection.</p>
+
+          <h3>The Solution</h3>
+          <ul>
+            <li>LDR sensor detects ambient light to switch between off / dim / active modes</li>
+            <li>PIR motion sensor boosts brightness to 70% when pedestrians/vehicles are detected, dims to 60% otherwise</li>
+            <li>ACS712 current sensor continuously checks for open/short-circuit faults, flags them in real time</li>
+          </ul>
+
+          <div class="patent-box">🏛 Indian Patent Application Published &mdash; No. 202641024982 A &middot; Published Apr 2026</div>
+
+          <div class="project-actions">
+            <a href="https://github.com/Suvas27/EcoStreet-Energy-Efficient-Motion-Aware-Lighting" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub Repo</a>
+            <button class="btn btn-primary view-media-btn" data-images='[{"src":"assets/images/ecostreet-wokwi-circuit.png","caption":"Wokwi circuit simulation"}]'>View Media</button>
+          </div>
+        </div>
+
+        <div class="project-sidebar">
+          <div class="stat-grid-small">
+            <div class="stat-box">
+              <span class="stat-number">35&ndash;60%</span>
+              <span class="stat-label">Energy Savings</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">300 ms</span>
+              <span class="stat-label">Update Rate</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">60%</span>
+              <span class="stat-label">Night Dimming</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">Real-time</span>
+              <span class="stat-label">Fault Sensing</span>
+            </div>
+          </div>
+          <div class="tools-list">Arduino Uno &middot; LDR &middot; PIR (HC-SR501) &middot; ACS712 &middot; Wokwi &middot; Embedded C</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project 3: Neuromorphic LIF -->
+  <section id="neuromorphic-lif" class="project-case-study reveal">
+    <div class="container">
+      <div class="status-badge">🟢 Completed</div>
+      <h2>Neuromorphic Architecture &mdash; LIF Neuron Model</h2>
+      <p class="subtitle">Computational foundation for brain-inspired spiking hardware</p>
+
+      <div class="project-content">
+        <div class="project-text">
+          <h3>The Problem</h3>
+          <p>Traditional neural networks are power-hungry; neuromorphic computing offers a brain-inspired, energy-efficient alternative &mdash; but needs a solid simulation foundation before hardware implementation.</p>
+
+          <h3>The Solution</h3>
+          <ul>
+            <li>Simulated the Leaky Integrate-and-Fire (LIF) neuron model using Forward Euler numerical integration</li>
+            <li>Modeled membrane potential dynamics with threshold-based spike generation and reset</li>
+            <li>Swept input current to analyze firing-rate response, building a framework extensible to multi-neuron SNNs</li>
+          </ul>
+
+          <div class="project-actions">
+            <a href="https://github.com/Suvas27/Spiking-Neural-Network-using-Leaky-Integrate-and-Fire-LIF-Neuron-Model-Simulation" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub Repo</a>
+            <button class="btn btn-primary view-media-btn" data-images='[{"src":"assets/images/lif-membrane-potential.png","caption":"Membrane Potential — threshold-based spike generation and reset"}, {"src":"assets/images/lif-firing-rate.png","caption":"Input Current vs Firing Rate — characteristic LIF response"}]'>View Plots</button>
+          </div>
+        </div>
+
+        <div class="project-sidebar">
+          <div class="stat-box">
+            <h4>Key Insights</h4>
+            <ul>
+              <li>Verified firing rate response matches theoretical LIF model</li>
+              <li>Extensible framework ready for hardware implementation</li>
+            </ul>
+          </div>
+          <div class="tools-list">Python 3 &middot; NumPy &middot; Matplotlib &middot; Jupyter Notebook</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Media Modal -->
+  <div class="modal-overlay" id="media-modal">
+    <button class="modal-close" aria-label="Close modal">✕</button>
+    <div class="modal-content">
+      <div class="modal-images"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-icons">
+        <a href="https://linkedin.com/in/suvas-tv" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+        <a href="https://github.com/Suvas27" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+        <a href="mailto:tvsuvas@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
+        </a>
+      </div>
+      <p>&copy; 2026 Suvas T V. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
